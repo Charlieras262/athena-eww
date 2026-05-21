@@ -1,13 +1,13 @@
 <h1 align="center">Athena Elkowars Wacky Widgets</h1>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Language-Lisp-blue?style=flat-square&logo=gnu" />
-  <img src="https://img.shields.io/badge/Language-Python-yellow?style=flat-square&logo=python" />
-  <img src="https://img.shields.io/badge/Shell-Script-2C2C2C?style=flat-square&logo=gnu-bash" />
+  <img src="https://img.shields.io/badge/Python-FFD43B?style=flat-square&logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/Shell_Script-121011?style=flat&logo=gnu-bash&logoColor=white" />
+  <br />
   <a href="https://github.com/haikal-hakim/athena-eww/blob/main/LICENSE">
-    <img src="https://img.shields.io/badge/License-MIT-orange.svg" />
+    <img src="https://img.shields.io/badge/License-MIT-orange.svg?style=flat-square" />
   </a>
-  <img src="https://img.shields.io/badge/Status-WIP-red?style=flat" />
+  <img src="https://img.shields.io/badge/Status-WIP-red?style=flat-square" />
 </p>
 
 <p align="center">
