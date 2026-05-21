@@ -67,6 +67,22 @@ Task three
 
 ---
 
+## Configuration Weather Location
+
+The weather widget fetches data from wttr.in. To change the location:
+
+```text
+Open eww/scripts/weather.sh.
+```
+
+Edit the curl URL:
+
+```Bash
+DATA=$(curl -s "wttr.in/YOUR_CITY?format=j1")
+```
+
+---
+
 ## Keybindings
 
 The dashboard can be toggled using the provided script in the scripts/ directory. Map the following command to your window manager's configuration:
