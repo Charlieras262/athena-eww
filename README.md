@@ -114,3 +114,23 @@ bind = $mainMod, SPACE, exec, ~/.config/eww/scripts/toggle_dashboard.sh
 ```
 
 ---
+
+## Dependencies
+
+To ensure all features of the Athena Eww setup work correctly, make sure the following packages are installed on your system:
+
+| Dependency | Purpose |
+| :--- | :--- |
+| **`inotify-tools`** | Required for real-time file monitoring. |
+| **`jq`** | JSON processor, used to parse weather data and system info. |
+| **`curl`** | Used to fetch weather data from `wttr.in`. |
+| **`python`** | Required for helper scripts. |
+| **`libnotify`** | Needed for desktop notifications. |
+
+### Installation (Arch Linux)
+You can install the required packages using `pacman`:
+
+```bash
+sudo pacman -S inotify-tools jq curl python libnotify
+
+---
