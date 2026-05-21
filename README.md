@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://github.com/haikal-hakim/atheneww/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/haikal-hakim/atheneww?style=flat&color=orange" />
+   <img src="https://img.shields.io/github/license/haikal-hakim/atheneww?style=flat&color=orange" /> 
   </a>
   <img src="https://img.shields.io/badge/Status-WIP-red?style=flat" />
 </p>
@@ -15,8 +15,6 @@
 
 ## About This Project
 This repository is my personal ecosystem for **Eww (Elkowar's Wacky Widgets)**, specifically crafted for my **Athena** setup.
-
-Currently, this project is a work-in-progress, with the dashboard module being the primary focus and the most stable part of the ecosystem. I am continuously iterating on this setup to improve the integration between system data and my daily workflow.
 
 ---
 
