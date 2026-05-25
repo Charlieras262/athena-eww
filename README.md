@@ -122,18 +122,19 @@ chmod +x ~/.config/eww/scripts/dashboard/*.sh
 
 ---
 
-<h1 align="center">Features Bar</h1>
+<h1 align="center">Bar Features</h1>
 
-## Notifications 
+## Interactive
 
-Notification widget in bar
-
-onclick `dunstctl history-pop`
-onrightclick `dunstctl history-clear && dunstctl close-all`
+| Module | Action | Command |
+| :--- | :--- | :--- |
+| **`Notifications`** | Click | `dunstctl history-pop` |
+| | Right-Click | `dunstctl history-clear && dunstctl close-all` |
+| **`Network`** | Click | `show nmcli` |
 
 ---
 
-<h1 align="center">Features Dashboard</h1>
+<h1 align="center">Dashboard Dashboard</h1>
 
 ## Customizing profile
 
