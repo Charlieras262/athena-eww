@@ -134,7 +134,7 @@ chmod +x ~/.config/eww/scripts/dashboard/*.sh
 
 ---
 
-<h1 align="center">Dashboard Dashboard</h1>
+<h1 align="center">Dashboard Features</h1>
 
 ## Customizing profile
 
