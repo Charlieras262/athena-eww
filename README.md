@@ -24,6 +24,8 @@
 
 This repo is actually just for fun, coding, creating layouts, and other things. Maybe I'll add something new, like a bar, in the future.
 
+This project is still under development, therefore please forgive if this structure is not neat. Thanks.
+
 ---
 
 ## Preview
@@ -34,15 +36,31 @@ This repo is actually just for fun, coding, creating layouts, and other things. 
 
 ## Project Structure
 
-```text
+Here is the folder structure of the Eww configuration (`athena-eww`):
+
+```folder
 athena-eww/
-└── eww/
-    ├── assets/          # Icons, images, and visual assets
-    ├── scripts/         # Bash & Python scripts for data
-    ├── src/             # .yuck files
-    ├── styles/          # .scss styles
-    ├── eww.scss         # Main stylesheet entry
-    └── eww.yuck         # Main configuration entry
+├── assets/                  # Images
+├── scripts/                 # Backend script
+│   ├── bar/
+│   └── dashboard/           < File toggle_dashboard.sh in here
+│
+├── src/                     # Source code .yuck
+│   ├── bar/                 # Top Bar
+│   │   ├── bar.yuck         # Layouts& include widget bar
+│   │   └── [widgets].yuck
+│   └── dashboard/           # Widget Dashboard
+│       ├── dashboard.yuck   # Layouts & include widget dashboard
+│       └── [widgets].yuck
+│
+├── styles/                  # Styling .scss
+│   ├── bar/
+│   ├── dashboard/
+│   ├── _index.scss          # Main import styles
+│   └── tokens.scss          # Variables
+│
+├── eww.scss                 # Entry point stylesheet
+└── eww.yuck                 # Entry point window
 ```
 
 ---
@@ -72,7 +90,20 @@ sudo pacman -S inotify-tools jq curl python libnotify
 > All scripts located in the scripts/ directory require execution permissions. Before running the widgets, ensure you have applied the necessary permissions:
 
 ```bash
-chmod +x ~/.config/eww/scripts/*.sh
+chmod +x ~/.config/eww/scripts/bar/*.sh
+chmod +x ~/.config/eww/scripts/dashboard/*.sh
+```
+
+---
+
+## Customizing profile
+
+Replace the photo, name and tag in `widget_profile` with the photo you want in `eww/src/dashboard/profile.yuck`
+
+**Example:**
+
+```lisp
+:style "background-image: url('${EWW_CONFIG_DIR}/assets/NAME_FILE.png'); border-radius: 99px;"
 ```
 
 ---
@@ -82,13 +113,25 @@ chmod +x ~/.config/eww/scripts/*.sh
 The weather widget fetches data from wttr.in. To change the location, open:
 
 ```text
-eww/scripts/weather.sh
+eww/scripts/dashboard/weather.sh
 ```
 
 Edit the curl URL:
 
 ```Bash
 DATA=$(curl -s "wttr.in/YOUR_CITY?format=j1")
+```
+
+---
+
+## Customizing Folder Shortcuts
+
+To change the folder path and file manager customization for `widget_folders`, edit `eww/src/dashboard/folders.yuck`. Find that section and update the `cmd` directive:
+
+**Example:**
+
+```lisp
+:cmd "thunar ~/Documents &"
 ```
 
 ---
@@ -109,24 +152,15 @@ Task three
 
 ---
 
-## Customizing Folder Shortcuts
-
-To change the folder path and file manager customization for `widget_folders`, edit `eww/src/folders.yuck`. Find that section and update the `onclick` directive:
-
-**Example:**
-
-  ```lisp
-  :onclick "bash ~/.config/eww/scripts/toggle_dashboard.sh close && thunar ~/Downloads &"
-  ```
-
----
-
 ## Keybindings
 
-The dashboard can be toggled using the provided script in the scripts/ directory. Map the following command to your window manager's configuration:
+To toggle the dashboard, map the execution script to your Window Manager configuration.
+
+>Manual Testing
+>You can test the toggle script directly from your terminal by running:
 
 ```bash
-~/.config/eww/scripts/toggle_dashboard.sh
+bash ~/.config/eww/scripts/dashboard/toggle_dashboard.sh
 ```
 
 ### Example (Hyprland)
@@ -134,7 +168,7 @@ The dashboard can be toggled using the provided script in the scripts/ directory
 Add the following to your `hyprland.conf`:
 
 ```text
-bind = $mainMod, SPACE, exec, ~/.config/eww/scripts/toggle_dashboard.sh
+bind = $mainMod, SPACE, exec, ~/.config/eww/scripts/dashboard/toggle_dashboard.sh
 ```
 
 ---
