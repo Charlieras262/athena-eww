@@ -3,7 +3,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Arch_Linux-1793D1?style=flat-square&logo=arch-linux&logoColor=white" />
   <img src="https://img.shields.io/badge/Hyprland-33CCEE?style=flat-square&logo=hyprland&logoColor=white" />
-  <img src="https://img.shields.io/badge/Shell_Script-121011?style=flat&logo=gnu-bash&logoColor=white" />
+  <img src="https://img.shields.io/badge/Status-WIP-red?style=flat-square" />
   <br />
   <img src="https://img.shields.io/github/last-commit/haikal-hakim/athena-eww?style=flat-square&color=purple&logo=github" />
   <img src="https://img.shields.io/badge/dynamic/json?color=blue&label=Clone&query=count&url=https://gist.githubusercontent.com/haikal-hakim/10a07e69ca0835e5557794011b24b771/raw/clone.json&logo=github&style=flat-square" />
@@ -11,7 +11,6 @@
   <a href="https://github.com/haikal-hakim/athena-eww/blob/main/LICENSE">
     <img src="https://img.shields.io/badge/License-MIT-orange.svg?style=flat-square" />
   </a>
-  <img src="https://img.shields.io/badge/Status-WIP-red?style=flat-square" />
 </p>
 
 <p align="center">
@@ -93,19 +92,22 @@ To ensure all features of the Athena Eww setup work correctly, make sure the fol
 
 | Dependency | Purpose |
 | :--- | :--- |
-| **`inotify-tools`** | Required for real-time file monitoring. |
-| **`jq`** | JSON processor, used to parse weather data and system info. |
+| **`dunst`** | Notifications daemon. |
+| **`jq`** | JSON processor, for weather data and system info. |
 | **`curl`** | Used to fetch weather data from `wttr.in`. |
-| **`libnotify`** | Needed for desktop notifications. |
-| **`lm_sensors`** | Linux monitoring temperature for system info. |
 | **`socat`** | Required for workspace. |
 | **`python`** | Required for helper scripts. |
+| **`libnotify`** | Needed for desktop notifications. |
+| **`lm_sensors`** | Linux monitoring temperature for system info. |
+| **`inotify-tools`** | Required for real-time file monitoring. |
+| **`networkmanager`** | Provides `nmcli` to handle Wi-Fi |
+| **`power-profiles-daemon`** | Manages system power profiles. |
 
 ### Installation (Arch Linux)
 You can install the required packages using `pacman`:
 
 ```bash
-sudo pacman -S inotify-tools jq curl libnotify lm_sensors socat python
+sudo pacman -S dunst jq curl socat python libnotify lm_sensors inotify-tools networkmanager power-profiles-daemon
 ```
 
 ---
@@ -119,6 +121,19 @@ chmod +x ~/.config/eww/scripts/dashboard/*.sh
 ```
 
 ---
+
+# Features Bar
+
+## Notifications 
+
+Notification widget in bar
+
+onclick `dunstctl history-pop`
+onrightclick `dunstctl history-clear && dunstctl close-all`
+
+---
+
+# Features Dashboard
 
 ## Customizing profile
 
