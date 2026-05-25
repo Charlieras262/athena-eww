@@ -113,7 +113,7 @@
                         :height 90
 
                         (label :class "sysinfo-icon-temp"
-                               :text "󰈸"
+                               :text ""
                                :halign "center"
                                :valign "center")
                       )
