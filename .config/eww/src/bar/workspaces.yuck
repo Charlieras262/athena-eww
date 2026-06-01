@@ -1,6 +1,16 @@
-(deflisten workspaces_listen
-  :initial "" "bash ~/.config/eww/scripts/bar/workspaces.sh")
+(deflisten workspaces_data
+  :initial '[{"id":1,"state":"empty"}]'
+  "bash ~/.config/eww/scripts/bar/workspaces.sh")
 
 (defwidget widget_workspaces []
-  (literal :content workspaces_listen)
+  (box :orientation "h"
+       :space-evenly false
+       :spacing 10
+       :valign "center"
+    (for ws in {workspaces_data}
+      (eventbox :cursor "pointer"
+        (button :class "ws-pill ${ws.state}"
+                :onclick "hyprctl dispatch workspace ${ws.id}"
+                )))
+  )
 )

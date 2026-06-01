@@ -1,0 +1,34 @@
+(deflisten music_title :initial "No Media"
+  "playerctl -p spotify -F metadata -f '{{title}}' 2>/dev/null || echo 'No Media'")
+
+(deflisten music_artist :initial "No Artist"
+  "playerctl -p spotify -F metadata -f '{{artist}}' 2>/dev/null || echo 'No Artist'")
+
+(deflisten music_status :initial "Stopped"
+  "playerctl -p spotify -F status 2>/dev/null || echo 'Stopped'")
+
+(defpoll current_date :interval "60m"
+  "date '+%d %B %Y'")
+
+(defwidget widget_music []
+  (box :orientation "horizontal"
+       :halign "center"
+       :valign "center"
+       (box :class "content"
+            :orientation "horizontal"
+            :space-evenly false
+            :valign "center"
+            :spacing 8
+
+            (label :class "icon"
+                   :valign "center"
+                   :visible {music_title != "" && music_title != "No Media"}
+                   :text "󰎈")
+
+            (label :class "title"
+                   :valign "center"
+                   :text {music_title != "" && music_title != "No Media" ? music_title : current_date}
+                   :limit-width 18)
+            )
+       )
+  )

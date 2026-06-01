@@ -1,38 +1,70 @@
 @import "../tokens.scss";
 
-.battery-container {
-  margin: 0 6px;
 
-  .bar-battery-icon {
-    font-size: $icon;
+.battery-container {
+
+  .battery-circle {
+    background-color: rgba(255, 255, 255, 0.12);
+    transition: color 0.5s ease-in-out;
   }
 
-  .bar-battery-percent {
-    font-size: $normal;
-    color: $text-muted;
+  .battery-space-holder {
+    padding: 11px;
+    background: transparent;
+  }
+
+  &.ac {
+    .battery-circle {
+      color: $teal;
+    }
   }
 
   &.charging {
-    .bar-battery-icon {
-      color: $green-primary;
+    .battery-circle {
+      color: $sapphire;
     }
   }
 
-  &.low {
-    .bar-battery-icon {
-      color: $maroon-primary;
+  &.full {
+    .battery-circle {
+      color: $green;
     }
   }
 
-  &.warning {
-    .bar-battery-icon {
-      color: $orange-primary;
+  &.high {
+    .battery-circle {
+      color: $teal;
     }
   }
 
   &.good {
-    .bar-battery-icon {
-      color: $green-primary;
+    .battery-circle {
+      color: $lavender;
+    }
+  }
+
+  &.warning-high {
+    .battery-circle {
+      color: $yellow;
+    }
+
+  }
+
+  &.warning-low {
+    .battery-circle {
+      color: $peach;
+    }
+  }
+
+  &.low {
+    .battery-circle {
+      color: $maroon;
+    }
+  }
+
+  &.critical {
+    .battery-circle {
+      color: $red;
     }
   }
 }

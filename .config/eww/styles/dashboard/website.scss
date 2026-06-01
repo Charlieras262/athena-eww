@@ -1,95 +1,85 @@
 @import "../tokens.scss";
 
-.web-btn {
-  font-size: 40px;
-}
-
-.web-github {
-  background: $bg-night;
+.web-card {
+  background-color: $base;
+  padding: 24px;
   border-radius: $rad;
 
-  .web-icon {
-    color: rgba(245, 245, 245, 1.0);
-    margin: 0 7px 3px 0;
-  }
+  .web-btn {
+    background-color: $base;
+    border-radius: $rad;
+    box-shadow: none;
 
-  &:hover {
-    background: rgba(245, 245, 245, 1.0);
+    min-width: 60px;
+    min-height: 40px;
+    transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 
     .web-icon {
-      color: $bg-night;
+      font-size: 40px;
     }
   }
-}
 
-.web-instagram {
-  background: rgba(225, 48, 108, 1.0);
-  border-radius: $rad;
-
-  .web-icon {
-    color: rgba(245, 245, 245, 1.0);
-    margin-right: 9px;
+  .web-arch,
+  .web-github,
+  .web-instagram,
+  .web-whatsapp,
+  .web-gmail {
+    background: transparent;
   }
 
-  &:hover {
-    background: rgba(245, 245, 245, 1.0);
+  .arch-btn {
+    .arch-icon {
+      color: $sapphire;
+      margin: 0 5.5px 2px 0;
+    }
 
-    .web-icon {
-      color: rgba(225, 48, 108, 1.0);
+    &:hover {
+      background-color: rgba($sapphire, 0.2);
     }
   }
-}
 
-.web-whatsapp {
-  background: rgba(37, 211, 102, 1.0);
-  border-radius: $rad;
+  .github-btn {
+    .github-icon {
+      color: $mauve;
+      margin: 0 6px 2px 0;
+    }
 
-  .web-icon {
-    color: rgba(245, 245, 245, 1.0);
-    margin-right: 8px;
-  }
+    &:hover {
+      background-color: rgba($mauve, 0.2);
 
-  &:hover {
-    background: rgba(245, 245, 245, 1.0);
-
-    .web-icon {
-      color: rgba(37, 211, 102, 1.0);
     }
   }
-}
 
-.web-gmail {
-  background: rgba(245, 245, 245, 1.0);
-  border-radius: $rad;
+  .instagram-btn {
+    .instagram-icon {
+      color: $pink;
+      margin-right: 7px;
+    }
 
-  .web-icon {
-    color: rgba(234, 67, 53, 1.0);
-    margin-right: 9px;
-  }
-
-  &:hover {
-    background: rgba(234, 67, 53, 1.0);
-
-    .web-icon {
-      color: rgba(245, 245, 245, 1.0);
+    &:hover {
+      background-color: rgba($pink, 0.2);
     }
   }
-}
 
-.web-incognito {
-  background: rgba(76, 86, 106, 1.0);
-  border-radius: $rad;
+  .whatsapp-btn {
+    .whatsapp-icon {
+      color: $green;
+      margin-right: 8px;
+    }
 
-  .web-icon {
-    color: rgba(245, 245, 245, 1.0);
-    margin-right: 9px;
+    &:hover {
+      background-color: rgba($green, 0.2);
+    }
   }
 
-  &:hover {
-    background: rgba(245, 245, 245, 1.0);
+  .gmail-btn {
+    .gmail-icon {
+      color: $red;
+      margin-right: 8px;
+    }
 
-    .web-icon {
-      color: rgba(76, 86, 106, 1.0);
+    &:hover {
+      background-color: rgba($red, 0.2);
     }
   }
 }

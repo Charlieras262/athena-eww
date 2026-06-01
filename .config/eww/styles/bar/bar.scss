@@ -1,17 +1,57 @@
 @import "../tokens.scss";
 
 .bar {
-  background: transparent;
+  background-color: rgba(26, 27, 38, 0.50);
+  border-radius: 0 0 $rad $rad;
+
+  .sep {
+    color: rgba($overlay0, 0.6);
+  }
+
+  .left-container {
+    background-color: $base;
+    border-radius: 0 0 $rad $rad;
+    padding: 0 14px;
+
+    .arch-icon {
+      font-size: 20px;
+      color: $sapphire;
+      margin-top: -3px;
+      margin-right: 3px;
+    }
+  }
 
   .center-container {
-    background-color: $bg-night;
+    background-color: rgba($base, 0.95);
     padding: 0 20px;
     border-radius: 0 0 $rad $rad;
+
+    .date-text {
+      font-family: "inter";
+    }
   }
 
   .right-container {
-    background-color: $bg-night;
-    padding: 0 12px 0 12px;
+    background-color: rgba($base, 0.95);
+    padding: 0 12px;
     border-radius: 0 0 $rad $rad;
+  }
+
+  .trigger-box {
+    background-color: rgba($base, 0.95);
+    padding: 0 4px;
+    border-radius: 0 0 $rad $rad;
+
+    .panel-trigger {
+      background: none;
+      box-shadow: none;
+      color: $teal;
+      font-size: $larger;
+      padding: 0 4px;
+
+      &:hover {
+        color: rgba($sapphire, 0.9);
+      }
+    }
   }
 }

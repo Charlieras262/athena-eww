@@ -1,0 +1,23 @@
+(defpoll os_age :interval "6h"
+  :initial "{\"days\": 0}"
+  "python3 ~/.config/eww/scripts/dashboard/os_age.py")
+
+(defwidget widget_os []
+  (box :class "os-card"
+       :orientation "horizontal"
+       :spacing 2
+
+       (label :class "os-age-icon"
+              :text " ")
+
+       (box :orientation "vertical"
+            :space-evenly false
+            :spacing 2
+            :valign "center"
+            (label :class "os-age-number"
+                   :text "${os_age.days}")
+            (label :class "os-age-label"
+                   :text "Days")
+       )
+  )
+)

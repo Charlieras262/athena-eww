@@ -1,11 +1,17 @@
-(defpoll network_data :interval "5s"
-  :initial '{"icon": "󰤭", "status": "disconnected", "ssid": "Disconnected"}'
-  "bash ~/.config/eww/scripts/bar/network.sh")
-
 (defwidget widget_network []
-  (box :class "network-container ${network_data.status}"
-       :tooltip "${network_data.ssid}"
-    (button :onclick "kitty -e nmtui &"
-      (label :class "bar-network-icon"
-             :text {network_data.icon})))
-)
+  (box :class "network-container ${network_data.status == 'disconnected' ? 'is-off' :
+       network_data.status == 'not-connected' ? 'is-not-connected' :
+       'is-on'}"
+       :orientation "horizontal"
+       :space-evenly false
+       :tooltip "${network_data.status == 'disconnected' ? 'Disconnected' :
+       network_data.status == 'not-connected' ? 'Wi-Fi On (Not Connected)' :
+       '${network_data.ssid} (${network_data.signal}%)'}"
+
+       (circular-progress :class "network-circle"
+                          :value "${network_data.status == 'disconnected' ? 0 : network_data.signal}"
+                          :thickness 4
+                          (label :class "network-space-holder"
+                                 :text ""))
+       )
+  )

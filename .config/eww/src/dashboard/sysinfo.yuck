@@ -1,124 +1,128 @@
-;; --- Variables ---
-(defpoll sysinfo :interval "1s"
+(defpoll sysinfo :interval "2s"
   :initial "{\"cpu\": 0, \"ram_used\": 0, \"ram_total\": 0, \"ram_percent\": 0, \"disk_used\": \"0G\", \"disk_total\": \"0G\", \"disk_percent\": 0, \"temp\": 0}"
-  "bash ~/.config/eww/scripts/dashboard/sysinfo.sh")
+  "python3 ~/.config/eww/scripts/dashboard/sysinfo.py")
 
-;; --- WIDGET --- ;;
+(defvar open_cpu false)
+(defvar open_ram false)
+(defvar open_disk false)
+(defvar open_temp false)
+
 (defwidget widget_sysinfo []
-  (box :orientation "vertical"
+  (box :class "sys-container"
+       :orientation "vertical"
        :space-evenly false
-       :spacing 8
+       :spacing 12
 
-       ;; Top Row (CPU & RAM)
+       ;; Top Row
        (box :orientation "horizontal"
-            :space-evenly true
-            :spacing 0
-
+            :spacing 10
             ;; CPU
             (box :orientation "vertical"
                  :halign "center"
-                 :spacing 4
-
                  (box :class "sysinfo-card"
                       :orientation "vertical"
                       :halign "center"
-                      :spacing 4
+                      (eventbox :cursor "pointer"
+                                :onclick "eww update open_cpu=${!open_cpu}"
+                                (circular-progress :value {sysinfo.cpu}
+                                                   :class "sysinfo-cpu"
+                                                   :thickness 6
+                                                   :width 90
+                                                   :height 90
 
-                      (circular-progress
-                        :value {sysinfo.cpu}
-                        :class "sysinfo-cpu"
-                        :thickness 9
-                        :width 90
-                        :height 90
-
-                        (label :class "sysinfo-icon"
-                               :text "󰻠"
-                               :halign "center"
-                               :valign "center")
+                                                   (stack :selected {open_cpu ? 1 : 0}
+                                                          :transition "slideright"
+                                                          (label :class "sysinfo-icon"
+                                                                 :text "󰻠")
+                                                          (label :class "sysinfo-stat"
+                                                                 :text "${sysinfo.cpu}%")
+                                                          )
+                                                   )
+                                )
                       )
                  )
-            )
 
             ;; RAM
             (box :orientation "vertical"
                  :halign "center"
-                 :spacing 4
-
                  (box :class "sysinfo-card"
                       :orientation "vertical"
                       :halign "center"
-                      :spacing 4
+                      (eventbox :cursor "pointer"
+                                :onclick "eww update open_ram=${!open_ram}"
+                                (circular-progress :value {sysinfo.ram_percent}
+                                                   :class "sysinfo-ram"
+                                                   :thickness 6
+                                                   :width 90
+                                                   :height 90
 
-                      (circular-progress
-                        :value {sysinfo.ram_percent}
-                        :class "sysinfo-ram"
-                        :thickness 9
-                        :width 90
-                        :height 90
-
-                        (label :class "sysinfo-icon"
-                               :text "󰍛"
-                               :halign "center"
-                               :valign "center")
+                                                   (stack :selected {open_ram ? 1 : 0}
+                                                          :transition "slideleft"
+                                                          (label :class "sysinfo-icon"
+                                                                 :text "󰍛")
+                                                          (label :class "sysinfo-stat"
+                                                                 :text "${sysinfo.ram_percent}%")
+                                                          )
+                                                   )
+                                )
                       )
                  )
             )
-       )
 
-       ;; Bottom Row (Disk & Temperature)
+       ;; Bottom Row
        (box :orientation "horizontal"
-            :space-evenly true
-            :spacing 0
-
+            :spacing 10
             ;; Disk
             (box :orientation "vertical"
                  :halign "center"
-                 :spacing 4
-
                  (box :class "sysinfo-card"
                       :orientation "vertical"
                       :halign "center"
-                      :spacing 4
+                      (eventbox :cursor "pointer"
+                                :onclick "eww update open_disk=${!open_disk}"
+                                (circular-progress :value {sysinfo.disk_percent}
+                                                   :class "sysinfo-disk"
+                                                   :thickness 6
+                                                   :width 90
+                                                   :height 90
 
-                      (circular-progress
-                        :value {sysinfo.disk_percent}
-                        :class "sysinfo-disk"
-                        :thickness 9
-                        :width 90
-                        :height 90
-
-                        (label :class "sysinfo-icon-disk"
-                               :text "󰋊"
-                               :halign "center"
-                               :valign "center")
+                                                   (stack :selected {open_disk ? 1 : 0}
+                                                          :transition "slideright"
+                                                          (label :class "sysinfo-icon-disk"
+                                                                 :text "󰋊")
+                                                          (label :class "sysinfo-stat"
+                                                                 :text "${sysinfo.disk_used}")
+                                                          )
+                                                   )
+                                )
                       )
                  )
-            )
 
             ;; Temperature
             (box :orientation "vertical"
                  :halign "center"
-                 :spacing 4
-
                  (box :class "sysinfo-card"
                       :orientation "vertical"
                       :halign "center"
-                      :spacing 4
+                      (eventbox :cursor "pointer"
+                                :onclick "eww update open_temp=${!open_temp}"
+                                (circular-progress :value {sysinfo.temp}
+                                                   :class "sysinfo-temp"
+                                                   :thickness 6
+                                                   :width 90
+                                                   :height 90
 
-                      (circular-progress
-                        :value {sysinfo.temp}
-                        :class "sysinfo-temp"
-                        :thickness 9
-                        :width 90
-                        :height 90
-
-                        (label :class "sysinfo-icon-temp"
-                               :text ""
-                               :halign "center"
-                               :valign "center")
+                                                   (stack :selected {open_temp ? 1 : 0}
+                                                          :transition "slideleft"
+                                                          (label :class "sysinfo-icon-temp"
+                                                                 :text "")
+                                                          (label :class "sysinfo-stat"
+                                                                 :text "${sysinfo.temp}°C")
+                                                          )
+                                                   )
+                                )
                       )
                  )
             )
-       )
-  )
+)
 )

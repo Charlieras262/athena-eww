@@ -1,0 +1,55 @@
+(defpoll weather :interval "30m"
+  :initial '{"location": "Loading...", "temp": "0", "desc": "Unknown", "type": "day", "humidity": "0", "wind": "0"}'
+  "~/.config/eww/scripts/corner/weather.py")
+
+(defwidget widget_weather []
+  (box :class "weather-card"
+       :orientation "vertical"
+       :space-evenly false
+       (box :orientation "horizontal"
+            :space-evenly false
+            :hexpand true
+
+            (label :class "weather-icon"
+                   :style {
+                   matches(weather.desc, "(?i)clear|sunny") ? (weather.type == "night" ? "color: #b4befe;" : "color: #f9e2af;") :
+                   matches(weather.desc, "(?i)few clouds|scattered clouds|broken clouds|partly cloudy") ? (weather.type == "night" ? "color: #cba6f7;" : "color: #74c7ec;") :
+                   matches(weather.desc, "(?i)cloudy|overcast|clouds") ? "color: #94e2d5;" :
+                   matches(weather.desc, "(?i)mist|fog|haze|smoke|dust|sand") ? "color: #fab387;" :
+                   matches(weather.desc, "(?i)light rain|drizzle|patchy") ? "color: #89b4fa;" :
+                   matches(weather.desc, "(?i)rain|shower") ? "color: #74c7ec;" :
+                   matches(weather.desc, "(?i)thunderstorm|thunder") ? "color: #f38ba8;" :
+                   matches(weather.desc, "(?i)snow|sleet|blizzard|ice") ? "color: #a6e3a1;" : "color: #ffffff;"
+                   }
+                   :text {
+                   matches(weather.desc, "(?i)clear|sunny") ? (weather.type == "night" ? "󰖔" : "") :
+                   matches(weather.desc, "(?i)few clouds|scattered clouds|broken clouds|partly cloudy") ? (weather.type == "night" ? "" : "") :
+                   matches(weather.desc, "(?i)cloudy|overcast|clouds") ? "" :
+                   matches(weather.desc, "(?i)mist|haze") ? "" :
+                   matches(weather.desc, "(?i)fog|smoke|dust") ? (weather.type == "night" ? "" : "") :
+                   matches(weather.desc, "(?i)drizzle|light rain") ? "󰖗" :
+                   matches(weather.desc, "(?i)shower") ? (weather.type == "night" ? "" : "") :
+                   matches(weather.desc, "(?i)rain") ? (weather.type == "night" ? "" : "") :
+                   matches(weather.desc, "(?i)thunderstorm.*rain") ? (weather.type == "night" ? "" : "") :
+                   matches(weather.desc, "(?i)thunderstorm") ? "󰖓" :
+                   matches(weather.desc, "(?i)heavy snow|blizzard") ? "" :
+                   matches(weather.desc, "(?i)snow") ? "󰖘" :
+                   matches(weather.desc, "(?i)sleet|ice") ? "󰖒" : ""
+                   })
+
+            (box :orientation "vertical"
+                 :space-evenly false
+                 :hexpand true
+                 :halign "end"
+                 :valign "center"
+                 (label :class "weather-temp"
+                        :text "${weather.temp}°C")
+                 (label :class "win-hum"
+                        :halign "center"
+                        :text "${weather.humidity}% | ${weather.wind} km/h"))
+            )
+
+       (label :class "weather-desc"
+              :halign "center"
+              :text "${weather.desc}"))
+  )

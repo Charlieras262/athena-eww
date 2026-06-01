@@ -1,9 +1,9 @@
-(include "./src/bar/workspaces.yuck")
-(include "./src/bar/clock.yuck")
+(include "./src/bar/audio.yuck")
 (include "./src/bar/battery.yuck")
-(include "./src/bar/daemon.yuck")
-(include "./src/bar/notification.yuck")
+(include "./src/bar/mpris.yuck")
 (include "./src/bar/network.yuck")
+(include "./src/bar/notification.yuck")
+(include "./src/bar/workspaces.yuck")
 
 (defwidget widget_bar []
   (centerbox :class "bar"
@@ -12,25 +12,54 @@
              :vexpand true
 
              ;; LEFT
-             (box :orientation "horizontal"
+             (box :class "left-container"
+                  :orientation "horizontal"
+                  :space-evenly false
+                  :spacing 18
                   :halign "start"
-                  (widget_workspaces))
+
+                  (eventbox :cursor "pointer"
+                            (button :class "bar-arch-trigger"
+                                    :onclick "bash ~/.config/eww/scripts/dashboard/toggle_dashboard.sh"
+                                    :style "background: none; box-shadow: none; padding: 0;"
+                                    (label :class "arch-icon"
+                                           :valign "center"
+                                           :text "󰣇")))
+
+                  (box :orientation "horizontal"
+                       (widget_workspaces))
+                  )
 
              ;; CENTER
              (box :class "center-container"
                   :halign "center"
-                  (widget_clock))
+                  (widget_music))
 
-             ;;RIGHT
-             (box :class "right-container" 
-                  :orientation "horizontal"
+             ;; RIGHT
+             (box :orientation "horizontal"
                   :halign "end"
-                  :spacing 4
+                  :spacing 12
                   :space-evenly false
 
-                  (widget_daemon)
-                  (widget_network)
-                  (widget_battery)
-                  (widget_notification))
+                  (box :class "right-container"
+                       :orientation "horizontal"
+                       :spacing 12
+                                         :space-evenly false
+                       (widget_mic)
+                       (widget_audio)
+                       (label :class "sep"
+                              :text "|")
+                       (widget_network)
+                       (widget_battery))
+
+                  (box :class "trigger-box"
+                       :orientation "horizontal"
+                       (widget_notification)
+
+                       (eventbox :cursor "pointer"
+                                 (button :class "panel-trigger"
+                                         :onclick "${EWW_CMD} open --toggle window_panel"
+                                         (label :text ""))))
+                  )
              )
   )

@@ -1,6 +1,8 @@
-;; --- ROOT --- ;;
+;; --- ROOT ---
 (include "./src/bar/bar.yuck")
+(include "./src/corner/corner.yuck")
 (include "./src/dashboard/dashboard.yuck")
+(include "./src/panel/panel.yuck")
 
 
 ;; --- BAR ---
@@ -8,8 +10,8 @@
   :monitor 0
   :geometry (geometry :x "0%"
                       :y "0%"
-                      :width "97%"
-                      :height "35px"
+                      :width "97.5%"
+                      :height "0px"
                       :anchor "top center")
   :stacking "fg"
   :windowtype "dock"
@@ -17,4 +19,30 @@
   :wm-ignore false
   :namespace "eww-bar"
   (widget_bar))
+
+;; --- DASHBOARD ---
+(defwindow window_dashboard
+  :monitor 0
+  :geometry (geometry :x "0%"
+                      :y "15%"
+                      :width 0
+                      :height 0
+                      :anchor "top center")
+  :stacking "overlay"
+  :windowtype "dialog"
+  :wm-ignore true
+  :namespace "eww-dashboard"
+  (dashboard_layout))
+
+;; --- PANEL ---
+(defwindow window_panel
+  :monitor 0
+  :geometry (geometry :x "20px"
+                      :y "20px"
+                      :width "420px"
+                      :height "380px"
+                      :anchor "top right")
+  :stacking "fg"
+  :namespace "eww-panel"
+  (widget_panel))
 

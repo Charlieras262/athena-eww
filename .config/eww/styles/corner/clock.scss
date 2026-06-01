@@ -1,0 +1,36 @@
+@import "../tokens.scss";
+
+.clock-card {
+  background-color: $base;
+  padding: 10px 26px;
+  border-radius: 0px 60px 60px 0px;
+}
+
+.clock-text {
+  font-size: 50px;
+  font-weight: bold;
+  color: $peach;
+}
+
+.uptime-layout {
+  padding: 2px 0;
+
+  .uptime-icon {
+    font-size: 55px;
+    color: $peach;
+  }
+
+  .uptime-hours {
+    margin-top: 12px;
+    font-size: 20px;
+    font-weight: bold;
+    color: $text;
+  }
+
+  .uptime-minutes {
+    font-size: $larger;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.5);
+    margin-left: 16px;
+  }
+}

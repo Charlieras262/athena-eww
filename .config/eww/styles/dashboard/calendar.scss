@@ -1,56 +1,34 @@
 @import "../tokens.scss";
 
-.calendar-card {
-  background: $bg-night;
-  color: $text-primary;
-  padding: 0 0 6px 0;
+.calendar {
+  background-color: $base;
+  color: $text;
+  padding: 10px 8px;
   border-radius: $rad;
-}
 
-.header {
-  background-color: $blue-primary;
-  border-top-left-radius: $rad;
-  border-top-right-radius: $rad;
-}
+  border: none;
+  outline: none;
 
-.cal-header {
-  margin-left: 20px;
-  font-size: 18px;
-  font-weight: bold;
-}
+  font-family: "Inter";
+  font-size: $large;
 
-.cal-nav {
-  font-size: 18px;
-
-  &:hover {
-    color: #000000;
+  .button {
+    color: $sapphire;
   }
-}
 
-/* Calendar grid */
-.cal-weekdays {
-  margin: 5px 12px;
-  color: $blue-primary;
-}
+  :selected {
+    color: $peach;
+  }
 
-.cal-day {
-  color: $text-primary;
-}
+  :indeterminate {
+    color: rgba($overlay2, 0.3);
+  }
 
-.cal-empty {
-  color: $text-dim;
-}
+  .highlight {
+    color: $peach;
+  }
 
-.cal-today {
-  min-width: 45px;
-  background: $orange-primary;
-  color: $fg;
-  border-radius: 50%;
-}
-
-.cal-selected {
-  min-width: 45px;
-  background: $accent-soft;
-  color: $text-primary;
-  border-radius: 50%;
+  .header {
+    color: $text;
+  }
 }

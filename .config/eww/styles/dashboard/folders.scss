@@ -1,70 +1,70 @@
 @import "../tokens.scss";
 
 .folders-card {
-  background: $bg-night;
+  background: $base;
   border-radius: $rad;
-}
+  padding: 8px 14px;
+  min-width: 150px;
 
-.folder-btn {
-  margin-left: 6px;
-  padding: 0 14px;
 
-  &:hover {
+  .folder-btn {
+    margin-left: 18px;
+    padding: 4px 0;
+
+    &:hover {
+
+      .folder-icon,
+      .folder-text {
+        color: rgba(255, 255, 255, 0.95);
+      }
+    }
+  }
+
+  .folder-icon {
+    font-size: 20px;
+  }
+
+  .folder-text {
+    font-size: $normal;
+  }
+
+  .git {
 
     .folder-icon,
     .folder-text {
-      color: $hover;
+      color: $peach;
     }
   }
-}
 
-.folder-icon {
-  font-size: 24px;
-}
+  .doc {
 
-.folder-text {
-  font-family: "Inter";
-  font-size: 14px;
-}
-
-/* Folder variants */
-.mus {
-  margin-top: 14px;
-
-  .folder-icon,
-  .folder-text {
-    color: $orange-primary;
+    .folder-icon,
+    .folder-text {
+      color: $maroon;
+    }
   }
-}
 
-.doc {
+  .dl {
 
-  .folder-icon,
-  .folder-text {
-    color: $maroon-primary;
+    .folder-icon,
+    .folder-text {
+      color: $green;
+    }
   }
-}
 
-.dl {
+  .pic {
 
-  .folder-icon,
-  .folder-text {
-    color: $green-primary;
+    .folder-icon,
+    .folder-text {
+      color: $blue;
+    }
   }
-}
 
-.pic {
+  .cfg {
 
-  .folder-icon,
-  .folder-text {
-    color: $blue-primary;
-  }
-}
-
-.cfg {
-
-  .folder-icon,
-  .folder-text {
-    color: $purple-primary;
+    .folder-icon,
+    .folder-text {
+      color: $mauve;
+    }
   }
 }

@@ -1,0 +1,49 @@
+@import "../tokens.scss";
+
+.slider-wrapper {
+  background-color: $base;
+  padding: 14px;
+  border-radius: $rad;
+
+  .slider-icon {
+    font-size: $larger;
+    margin: 0 18px 0 4px;
+
+    &.volume {
+      color: $teal;
+    }
+
+    &.brightness {
+      color: $yellow;
+    }
+  }
+
+  .osd-scale {
+    trough {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      min-height: 16px;
+    }
+
+    highlight {
+      border-radius: 10px;
+      min-height: 14px;
+    }
+
+    &.volume highlight {
+      background-image: linear-gradient(to right, $teal, $blue);
+    }
+
+    &.brightness highlight {
+      background-image: linear-gradient(to right, $yellow, $peach);
+    }
+
+    slider {
+      background-color: #ffffff;
+      border-radius: 50%;
+      min-height: 22px;
+      min-width: 23px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    }
+  }
+}

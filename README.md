@@ -230,6 +230,17 @@ Add the following to your `hyprland.conf`:
 bind = $mainMod, SPACE, exec, ~/.config/eww/scripts/dashboard/toggle_dashboard.sh
 ```
 
+### Laptop Multimedia Keys
+
+To enable the OSD volume and brightness buttons on your keyboard, add this to `hyprland.conf`. Example:
+
+```text
+bindel = ,XF86AudioRaiseVolume, exec, bash ~/.config/eww/scripts/corner/osd_vol.sh vol-up
+bindel = ,XF86AudioLowerVolume, exec, bash ~/.config/eww/scripts/corner/osd_vol.sh vol-down
+bindel = ,XF86MonBrightnessUp, exec, bash ~/.config/eww/scripts/corner/osd_bright.sh bright-up
+bindel = ,XF86MonBrightnessDown, exec, bash ~/.config/eww/scripts/corner/osd_bright.sh bright-down
+```
+
 ---
 
 ## Acknowledgments

@@ -1,38 +1,50 @@
 @import "../tokens.scss";
 
-.sysinfo-card {
-  background: $bg-night;
-  border-radius: 16px;
-  padding: 12px;
-}
+.sys-container {
+  background-color: rgba($base, 0.50);
+  padding: 6px;
+  border-radius: $rad;
 
-.sysinfo-icon {
-  font-size: 35px;
-  margin-right: 5px;
-}
+  .sysinfo-card {
+    background: $base;
+    border-radius: $rad;
+    padding: 12px;
 
-.sysinfo-cpu {
-  background: rgba(137, 180, 250, 0.15);
-  color: $blue-primary;
-}
+    .sysinfo-icon {
+      font-size: 35px;
+      margin-right: 5px;
+    }
 
-.sysinfo-ram {
-  background: rgba(203, 166, 247, 0.15);
-  color: $purple-primary;
-}
+    .sysinfo-cpu {
+      background: rgba($blue, 0.15);
+      color: $blue;
+    }
 
-.sysinfo-disk {
-  background: rgba(148, 226, 213, 0.15);
-  color: $green-soft;
-  font-size: 34px;
-}
+    .sysinfo-ram {
+      background: rgba($mauve, 0.15);
+      color: $mauve;
+    }
 
-.sysinfo-icon-disk {
-  margin-right: 2px;
-}
+    .sysinfo-disk {
+      background: rgba($teal, 0.15);
+      color: $teal;
+      font-size: 34px;
 
-.sysinfo-temp {
-  background: rgba(243, 139, 168, 0.15);
-  color: $maroon-primary;
-  font-size: 35px;
+      .sysinfo-icon-disk {
+        margin-right: 2px;
+      }
+    }
+
+    .sysinfo-temp {
+      background: rgba($red, 0.15);
+      color: $red;
+      font-size: 35px;
+    }
+
+    .sysinfo-stat {
+      font-size: 16px;
+      font-weight: bold;
+      color: $text;
+    }
+  }
 }

@@ -1,35 +1,50 @@
 @import "../tokens.scss";
 
 .notif-box {
+
   button {
     background: transparent;
-    border-radius: 0 0 $rad 0;
+    box-shadow: none;
 
     &:hover,
     &:active {
       background: transparent;
+      box-shadow: none;
     }
   }
 
   label {
-    font-size: $icon;
+    font-size: $larger;
   }
 
   &.empty {
     label {
-      color: $text-dim;
+      color: rgba($text, 0.3);
+    }
+
+    button:hover label {
+      color: $subtext1;
     }
   }
 
   &.has-notif {
     label {
-      color: $yellow-primary;
+      color: $yellow;
+    }
+
+    button:hover label {
+      color: $teal;
     }
   }
 
   &.dnd {
     label {
-      color: $text-dim;
+      color: $maroon;
+      opacity: 0.5;
+    }
+
+    button:hover label {
+      color: $text;
     }
   }
 }

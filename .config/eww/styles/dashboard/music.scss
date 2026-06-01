@@ -1,28 +1,42 @@
 @import "../tokens.scss";
 
 .music-card {
-  background: $bg-night;
+  background: $base;
   border-radius: $rad;
-}
+  padding: 14px;
 
-.music-cover,
-.music-info {
-  margin: 10px 0 10px 10px;
-  background-size: cover;
-  background-position: center;
-  border-radius: 8px;
-}
+  .music-cover {
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+  }
 
-.music-title {
-  font-weight: bold;
-  margin: 16px 35px 0 0;
-}
+  .music-info {
+    margin-left: 10px;
+    margin-top: 12px;
 
-.music-artist {
-  font-size: 14px;
-  margin-right: 35px;
-}
+    .music-title {
+      font-size: $normal;
+      font-weight: bold;
+      color: $text;
+    }
 
-.music-controls {
-  margin-right: 35px;
+    .music-artist {
+      font-size: $normal;
+      color: rgba(255, 255, 255, 0.6);
+    }
+  }
+
+  .music-controls {
+    button {
+      font-size: $larger;
+      color: $text;
+      padding: 4px 8px;
+      transition: all 0.2s ease;
+
+      &:hover {
+        color: $blue;
+      }
+    }
+  }
 }

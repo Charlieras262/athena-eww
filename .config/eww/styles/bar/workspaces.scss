@@ -1,35 +1,30 @@
 @import "../tokens.scss";
 
-.workspaces {
-  background-color: $bg-night ;
-  border-radius: 0 0 $rad $rad;
 
-  .ws-dot {
-    background-color: transparent;
-    border-radius: 0 0 $rad $rad;
+.ws-pill {
+  border-radius: 99px;
+  padding: 0;
+  min-height: 14px;
+  min-width: 14px;
 
-    &.active {
-      color: $hover;
-      font-size: 18px;
-    }
+  &.active {
+    min-width: 38px;
+    background-image: linear-gradient(to right, $sapphire, $teal);
+  }
 
-    &.occupied {
-      color: $text-primary;
-      font-size: 16px;
-    }
+  &.occupied {
+    background-color: $text;
+  }
 
-    &.urgent {
-      color: $maroon-primary;
-      font-size: 12px;
-    }
+  &.urgent {
+    background-color: $maroon;
+  }
 
-    &.empty {
-      color: $text-dim;
-      font-size: 15px;
-    }
+  &.empty {
+    background-color: $surface0;
+  }
 
-    &:hover {
-      color: $text-muted;
-    }
+  &:hover {
+    background-color: $blue;
   }
 }

@@ -1,0 +1,27 @@
+@import "../tokens.scss";
+
+.os-card {
+  background: $base;
+  border-radius: $rad;
+  padding: 0px 14px;
+  min-height: 101px;
+
+  .os-age-icon {
+    font-size: 38px;
+    color: $yellow;
+    margin-left: 12px;
+  }
+
+  .os-age-number {
+    font-size: 22px;
+    font-weight: bold;
+    color: $sky;
+    margin-right: 28px;
+  }
+
+  .os-age-label {
+    font-size: 16px;
+    color: $text;
+    margin-left: 18px;
+  }
+}

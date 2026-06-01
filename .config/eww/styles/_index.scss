@@ -1,22 +1,36 @@
-@import "tokens";
+@import "tokens.scss";
 
-//--- Import bar --- //
-@import "bar/bar";
-@import "bar/daemon.scss";
-@import "bar/battery";
+//--- Import bar ---
+@import "bar/audio.scss";
+@import "bar/bar.scss";
+@import "bar/battery.scss";
+@import "bar/mpris.scss";
+@import "bar/network.scss";
 @import "bar/notification.scss";
-@import "bar/network";
-@import "bar/clock.scss";
 @import "bar/workspaces.scss";
 
-// --- Import dashboard --- //
-@import "dashboard/profile";
-@import "dashboard/weather";
-@import "dashboard/calendar";
-@import "dashboard/launcher";
-@import "dashboard/sysinfo";
-@import "dashboard/folders";
-@import "dashboard/website";
-@import "dashboard/uptime";
-@import "dashboard/todo";
-@import "dashboard/music";
+// --- PANEL ---
+@import "panel/bluetooth.scss";
+@import "panel/daemon.scss";
+@import "panel/dnd.scss";
+@import "panel/network.scss";
+@import "panel/panel.scss";
+@import "panel/quicktoggle.scss";
+@import "panel/sliders.scss";
+
+// --- CORNER ---
+@import "corner/clock.scss";
+@import "corner/launcher.scss";
+@import "corner/osd.scss";
+@import "corner/power.scss";
+@import "corner/weather.scss";
+
+// --- DASHBOARD ---
+@import "dashboard/calendar.scss";
+@import "dashboard/dashbord.scss";
+@import "dashboard/folders.scss";
+@import "dashboard/music.scss";
+@import "dashboard/os.scss";
+@import "dashboard/sysinfo.scss";
+@import "dashboard/todo.scss";
+@import "dashboard/website.scss";

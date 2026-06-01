@@ -1,37 +1,30 @@
 #!/bin/bash
+HYPRLAND_INSTANCE_SIGNATURE=$(ls /run/user/$(id -u)/hypr/ | head -1)
 
-generate_workspaces() {
+generate() {
   ACTIVE=$(hyprctl monitors -j | jq '.[] | select(.focused == true) | .activeWorkspace.id')
   OCCUPIED=$(hyprctl workspaces -j | jq -r '.[] | select(.windows > 0) | .id' | tr '\n' ' ')
-  URGENT=$(hyprctl workspaces -j | jq -r '.[] | select(.has_urgent == true or .urgent == true) | .id' | tr '\n' ' ')
 
-  echo -n "(box :class \"workspaces\" :orientation \"h\" :space-evenly false :spacing 12"
-  for i in {1..5}; do
-    CLASS="ws-dot"
-    ICON="󰊠"
-
+  echo -n '['
+  for i in {1..6}; do
+    [ "$i" -gt 1 ] && echo -n ','
     if [ "$i" -eq "$ACTIVE" ]; then
-      CLASS="$CLASS active"
-      ICON="󱍢"
-    elif [[ " $URGENT " =~ " $i " ]]; then
-      CLASS="$CLASS urgent"
-      ICON="󱁂"
+      STATE="active"
     elif [[ " $OCCUPIED " =~ " $i " ]]; then
-      CLASS="$CLASS occupied"
-      ICON="󰶵"
+      STATE="occupied"
     else
-      CLASS="$CLASS empty"
-      ICON=""
+      STATE="empty"
     fi
-    echo -n " (button :class \"$CLASS\" :onclick \"hyprctl dispatch workspace $i\" \"$ICON\")"
+    echo -n "{\"id\": $i, \"state\": \"$STATE\"}"
   done
-  echo ")"
+  echo ']'
 }
 
-generate_workspaces
-
-socat -u UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock - | while read -r line; do
-  if [[ "$line" =~ ^workspace[^v] ]] || [[ "$line" =~ ^focusedmon ]] || [[ "$line" =~ ^destroyworkspace ]] || [[ "$line" =~ ^createworkspace ]] || [[ "$line" =~ ^urgent ]]; then
-    generate_workspaces
-  fi
+generate
+socat -u UNIX-CONNECT:/run/user/$(id -u)/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock - | while read -r line; do
+  case ${line%>>*} in
+  workspace | focusedmon | destroyworkspace | createworkspace | urgent)
+    generate
+    ;;
+  esac
 done

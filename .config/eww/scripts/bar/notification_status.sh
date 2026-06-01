@@ -11,8 +11,8 @@ if [ "$IS_PAUSED" = "true" ]; then
   echo '{"icon": "󰂛", "class": "dnd", "count": '$TOTAL_NOTIF'}'
 else
   if [ "$TOTAL_NOTIF" -gt 0 ]; then
-    echo '{"icon": "󱅫", "class": "has-notif", "count": '$TOTAL_NOTIF'}'
+    echo '{"icon": "󰂟", "class": "has-notif", "count": '$TOTAL_NOTIF'}'
   else
-    echo '{"icon": "󰂚", "class": "empty", "count": 0}'
+    echo '{"icon": "", "class": "empty", "count": 0}'
   fi
 fi
