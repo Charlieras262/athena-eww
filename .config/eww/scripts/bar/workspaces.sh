@@ -39,5 +39,5 @@ if [ -S "$SOCKET_PATH" ]; then
     esac
   done
 else
-  echo "Error: Socket Hyprland kagak ketemu!" >&2
+  echo "Error: Bos, socket Hyprland ga ketemu" >&2
 fi
