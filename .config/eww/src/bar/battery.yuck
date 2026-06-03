@@ -1,4 +1,4 @@
-(deflisten bat_notif_daemon "bash ~/.config/eww/scripts/battery.sh")
+(deflisten bat_notif_daemon "bash ~/.config/eww/scripts/bar/battery.sh")
 
 (defwidget widget_battery []
   (box :class "battery-container ${EWW_BATTERY.BAT0.status == 'AC' ? 'ac' :
