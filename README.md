@@ -202,42 +202,6 @@ eww get EWW_TEMPS
 )
 ```
 
-### Hardware Battery
-
-The battery widget also uses magic variables.
-
-Default uses **`BAT0`** and maybe your device is different.
-1. Find your actual battery identifier key by running this command in your terminal:
-
-```bash
-eww get EWW_BATTERY
-```
-
-2. Look at the output, find your battery name, and update it inside `eww/src/bar/battery.yuck`:
-
-```lisp
-(defwidget widget_battery []
-  (box :class "battery-container ${EWW_BATTERY["YOUR_BATTERY_KEY"].status == 'AC' ? 'ac' :
-       EWW_BATTERY["YOUR_BATTERY_KEY"].status == 'Charging' ? 'charging' :
-       EWW_BATTERY["YOUR_BATTERY_KEY"].capacity < 11 ? 'critical' :
-       EWW_BATTERY["YOUR_BATTERY_KEY"].capacity < 26 ? 'low' :
-       EWW_BATTERY["YOUR_BATTERY_KEY"].capacity < 41 ? 'warning-low' :
-       EWW_BATTERY["YOUR_BATTERY_KEY"].capacity < 61 ? 'warning-high' :
-       EWW_BATTERY["YOUR_BATTERY_KEY"].capacity < 81 ? 'good' :
-       EWW_BATTERY["YOUR_BATTERY_KEY"].capacity < 91 ? 'high' : 'full'}"
-       :orientation "horizontal"
-       :space-evenly false
-       :tooltip "${EWW_BATTERY["YOUR_BATTERY_KEY"].capacity}% | ${EWW_BATTERY["YOUR_BATTERY_KEY"].status}"
-
-       (circular-progress :class "battery-circle"
-                          :value "${EWW_BATTERY["YOUR_BATTERY_KEY"].capacity ?: 0}"
-                          :thickness 4
-                          (label :class "battery-space-holder"
-                                 :text ""))
-  )
-)
-```
-
 ### Folder Shortcuts
 
 To change the folder path and file manager customization for `widget_folders`, edit `eww/src/dashboard/folders.yuck`. Find that section and update the `cmd` directive:
