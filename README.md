@@ -197,13 +197,13 @@ eww get EWW_TEMPS
 The Todo widget requires a local text file to function. Ensure the following path exists:
 
 - **Path:** `~/Documents/todo.txt`
-- **Format:** A simple text file containing your tasks (maximum 2 lines).
+- **Format:** A simple text file containing your tasks (maximum 3 lines).
 
 Example content:
 ```text
 Task one
 Task two
-Task Three
+Task three
 ```
 
 ---
