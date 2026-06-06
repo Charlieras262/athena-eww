@@ -1,15 +1,17 @@
+(defvar open_dashboard false)
+
 ;; --- ROOT ---
-(include "./src/bar/bar.yuck")
-(include "./src/corner/corner.yuck")
-(include "./src/dashboard/dashboard.yuck")
-(include "./src/panel/panel.yuck")
+(include "./bar/bar.yuck")
+(include "./corner/corner.yuck")
+(include "./dashboard/dashboard.yuck")
+(include "./panel/panel.yuck")
 
 
 ;; --- BAR ---
 (defwindow window_bar
   :monitor 0
   :geometry (geometry :x "0%"
-                      :y "1%"
+                      :y "0.5%"
                       :width "70%"
                       :height "0px"
                       :anchor "top center")
@@ -24,7 +26,7 @@
 (defwindow window_dashboard
   :monitor 0
   :geometry (geometry :x "0%"
-                      :y "15%"
+                      :y "13%"
                       :width 0
                       :height 0
                       :anchor "top center")
@@ -45,3 +47,4 @@
   :stacking "fg"
   :namespace "eww-panel"
   (widget_panel))
+

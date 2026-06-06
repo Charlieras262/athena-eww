@@ -1,0 +1,70 @@
+@import "../../theme/tokens.scss";
+
+
+.battery-container {
+
+  .battery-circle {
+    background-color: rgba(255, 255, 255, 0.12);
+    transition: color 0.5s ease-in-out;
+  }
+
+  .battery-space-holder {
+    padding: 11px;
+    background: transparent;
+  }
+
+  &.ac {
+    .battery-circle {
+      color: $teal;
+    }
+  }
+
+  &.charging {
+    .battery-circle {
+      color: $sapphire;
+    }
+  }
+
+  &.full {
+    .battery-circle {
+      color: $green;
+    }
+  }
+
+  &.high {
+    .battery-circle {
+      color: $teal;
+    }
+  }
+
+  &.good {
+    .battery-circle {
+      color: $lavender;
+    }
+  }
+
+  &.warning-high {
+    .battery-circle {
+      color: $yellow;
+    }
+
+  }
+
+  &.warning-low {
+    .battery-circle {
+      color: $peach;
+    }
+  }
+
+  &.low {
+    .battery-circle {
+      color: $maroon;
+    }
+  }
+
+  &.critical {
+    .battery-circle {
+      color: $red;
+    }
+  }
+}

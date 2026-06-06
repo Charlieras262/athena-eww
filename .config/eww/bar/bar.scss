@@ -1,0 +1,43 @@
+@import "../theme/tokens.scss";
+
+.bar {
+  background-color: $glass;
+  border-radius: 24px;
+
+  .sep {
+    color: rgba($overlay0, 0.6);
+  }
+
+  .left-container {
+    padding: 0 12px;
+
+    .arch-icon {
+      font-size: 20px;
+      color: $sapphire;
+    }
+  }
+
+  .center-container {
+    padding: 0 20px;
+
+    .time {
+      font-size: $larger;
+      font-weight: bold;
+    }
+  }
+
+  .right-container {
+    padding: 0 12px;
+  }
+
+  .panel-trigger {
+    color: $teal;
+    font-size: 20px;
+    margin-right: 4px;
+    margin-left: -10px;
+
+    &:hover {
+      color: rgba($sapphire, 0.9);
+    }
+  }
+}

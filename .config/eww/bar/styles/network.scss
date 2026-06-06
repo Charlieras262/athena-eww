@@ -1,0 +1,41 @@
+@import "../../theme/tokens.scss";
+
+.network-container {
+  .network-circle {
+    background-color: rgba(255, 255, 255, 0.12);
+  }
+
+  .network-space-holder {
+    padding: 11px;
+  }
+
+  &.wired {
+    .network-circle {
+      color: $green;
+    }
+  }
+
+  &.is-on {
+    .network-circle {
+      color: $lavender;
+    }
+  }
+
+  &.wifi-ok {
+    .network-circle {
+      color: $peach;
+    }
+  }
+
+  &.wifi-low {
+    .network-circle {
+      color: $red;
+    }
+  }
+
+  &.is-off {
+    .network-circle {
+      color: rgba($text, 0.30);
+    }
+  }
+}

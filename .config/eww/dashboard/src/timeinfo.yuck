@@ -1,0 +1,71 @@
+(defpoll os_age :interval "6h"
+  :initial "{\"days\": 0}"
+  "python3 ~/.config/eww/dashboard/scripts/os_age.py")
+
+(defpoll uptime_h :interval "60s"
+  "uptime -p | awk -F, '{print $1}' | sed 's/up //; s/ hours\\?/ hours/; s/ minutes\\?/ minutes/' | grep -E 'hours|minutes'")
+(defpoll uptime_m :interval "60s"
+  "uptime -p | awk -F, '{print $2}' | sed 's/ //g; s/minutes\\?/ minutes/'")
+
+(defwidget widget_timeinfo []
+  (box :class "timeinfo-card"
+       :orientation "vertical"
+       :space-evenly true
+       :spacing 8
+       :width 225
+       :halign "fill"
+       :valign "fill"
+
+       (box :class "os-section"
+            :orientation "horizontal"
+            :hexpand true
+            :vexpand true
+            :halign "fill"
+            :valign "fill"
+
+            (box :orientation "horizontal"
+                 :space-evenly false
+                 :spacing 12
+                 :halign "center"
+                 :valign "center"
+
+                 (label :class "os-age-icon"
+                        :text " ")
+
+                 (box :orientation "vertical"
+                      :space-evenly false
+                      :spacing 2
+                      :valign "center"
+                      (label :class "os-age-number"
+                             :halign "start"
+                             :text "${os_age.days}")
+                      (label :class "os-age-label"
+                             :halign "start"
+                             :text "Days")
+                      )
+                 )
+            )
+
+       (box :class "uptime-section"
+            :orientation "horizontal"
+            :space-evenly false
+            :hexpand true
+            :vexpand true 
+            :halign "fill"
+            :valign "fill"
+
+            (box :orientation "vertical"
+                 :space-evenly false
+                 :hexpand true
+                 :halign "center"
+                 :valign "center"
+                 (label :class "uptime-hours"
+                        :halign "center"
+                        :text {uptime_h != "" ? uptime_h : "0 h"})
+                 (label :class "uptime-minutes"
+                        :halign "center"
+                        :text {uptime_m != "" ? uptime_m : uptime_h =~ "m" ? "" : "0m"})
+                 )
+            )
+       )
+  )
