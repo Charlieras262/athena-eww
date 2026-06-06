@@ -148,7 +148,7 @@ chmod +x ~/.config/eww/panel/scripts/*.sh
 
 ### Weather Location
 
-1. **Get an API Key**: Sign up at [OpenWeatherMap](https://openweathermap.org/) generate a API key from your account. Find your location.
+**Get an API Key**: Sign up at [OpenWeatherMap](https://openweathermap.org/) generate a API key from your account. Find your location.
 
 Open the weather script:
 
