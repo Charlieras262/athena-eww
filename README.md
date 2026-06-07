@@ -133,10 +133,10 @@ chmod +x ~/.config/eww/panel/scripts/*.sh
 
 | Module | Action | Command / Function |
 | :--- | :--- | :--- |
-| **`Wi-Fi`** | Click (Icon) | Toggles Wi-Fi status via `nmcli` |
+| **`Wi-Fi`** | Click | Toggles Wi-Fi status via `nmcli` |
 | | Click (Row) | Opens `nmtui` inside terminal |
 | **`Power Mode`** | Click | Cycles profiles via `powerprofilesctl` |
-| **`Bluetooth`** | Click (icon) | Toggles Bluetooth adapter status |
+| **`Bluetooth`** | Click | Toggles Bluetooth adapter status |
 | | Click (Row) | Opens `blueman-manager` |
 | **`Do Not Disturb`** | Click | Toggles Dunst notifications status |
 | **`Screenshot`** | Click | Runs local script `~/.config/hypr/scripts/screenshot.sh` |
@@ -191,8 +191,8 @@ eww get EWW_TEMPS
 
 2. Look at the output, find your `main/package temperature sensor name`, and update it inside `eww/dashboard/src/sysinfo.yuck`:
 
-```lips
-(circular-progress :value {((EWW_TEMPS["YOUR_SESOR_KEY"] ?: EWW_TEMPS["Tdie"] ?: 0) / 100) * 100}
+```lisp
+(circular-progress :value {((EWW_TEMPS["YOUR_SESNOR_KEY"] ?: EWW_TEMPS["Tdie"] ?: 0) / 100) * 100}
                    :class "sysinfo-temp"
                    :thickness 6
                    :width 90
@@ -202,7 +202,7 @@ eww get EWW_TEMPS
                           (label :class "sysinfo-icon-temp"
                                  :text "")
                                  (label :class "sysinfo-stat"
-                                        :text "${EWW_TEMPS["YOUR_SESOR_KEY"] ?: EWW_TEMPS["Tdie"] ?: 0}°C")
+                                        :text "${EWW_TEMPS["YOUR_SESNOR_KEY"] ?: EWW_TEMPS["Tdie"] ?: 0}°C")
                    )
 )
 ```
@@ -219,6 +219,24 @@ Example content:
 Task one
 Task two
 Task three
+```
+
+### App Launcher
+
+The app launcher widget uses custom static PNG icons to match the aesthetic. If you want to change the apps to your preferred daily drivers, you need to update both the visual icons and the execution commands.
+
+1. Replace the Icons
+Put your new `.png` icons inside the assets directory:
+```text
+.config/eww/assets/apps/
+```
+
+2. Modify the Apps and Commands
+Open the launcher configuration file `.config/eww/corner/src/launcher.yuck`. Inside widget_launcher, look for the:
+
+```lisp
+(launcher-btn :icon "${EWW_CONFIG_DIR}/assets/apps/NAME_ICON.png"
+              :cmd "your-app-command &")
 ```
 
 ### Theme Customization & Adding New Themes
@@ -312,14 +330,13 @@ I don't provide automated install scripts or bloated installation wrappers. This
 ### Clone the Repository
 Clone this repository directly into your local machine:
 
-*   **Configurations (`eww`, `kitty`, `fastfetch`, `rofi`, `dunst`):**
 ```bash
 git clone https://github.com/haikal-hakim/athena-eww.git
 cd athena-eww
 cp -r .config/* ~/.config/
 ```
 
-*   **Shell (`.zshrc`):**
+Shell (`.zshrc`):
 ```bash
 cp .zshrc ~/
 ```
