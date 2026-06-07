@@ -352,7 +352,7 @@ end, { repeating = true })
 
 ### Installation
 
-I don't provide automated install scripts or bloated installation wrappers. This repository is meant to be cloned, read, stripped down, and modified according to *your* personal needs.
+I don't provide automated install scripts or bloated installation wrappers. This repository is meant to be cloned, read, stripped down, and modified according needs.
 
 ### Clone the Repository
 Clone this repository directly into your local machine:
