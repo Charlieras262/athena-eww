@@ -247,7 +247,7 @@ To toggle the dashboard, map the execution script to your Window Manager configu
 >You can test the toggle script directly from your terminal by running:
 
 ```bash
-bash ~/.config/eww/dashboard/scripts/toggle_dashboard.sh
+eww open window_dashboard
 ```
 
 ### Example (Hyprland)
@@ -256,7 +256,7 @@ Add the following to your `hyprland.lua`:
 
 ```lua
 hl.bind(mainMod .. " + D", function()
-	hl.dispatch(hl.dsp.exec_cmd(home .. "/.config/eww/dashboard/scripts/toggle_dashboard.sh"))
+	hl.dispatch(hl.dsp.exec_cmd("eww close window_dashboard || eww open window_dashboard"))
 end)
 ```
 
