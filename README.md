@@ -210,6 +210,18 @@ Task two
 Task three
 ```
 
+### Theme Customization & Adding New Themes
+
+If you want to modify an existing theme or add your own custom color scheme, you can do so easily! However, to prevent broken styles, any new theme must use the exact same color variable names (such as `base`, `mantle`, `crust`, `peach`, `mauve`, etc.) as the original theme was Catppuccin Mocha.
+
+To customize or add a new theme, you will need to modify these specific files:
+
+1. Theme Palette: Add or edit the `.scss` color file inside `.config/eww/theme/`.
+
+2. Switcher UI: Update the widget layout in `.config/eww/panel/src/switcher.yuck` and its stylesheet `.config/eww/panel/styles/switcher.scss` to add your theme switcher button.
+
+3. **Backend Script:** Change the theme switching logic inside `.config/eww/toggle_theme.sh` so that Eww knows which palette to load when the button is clicked.
+
 ---
 
 <h1 align="center">Autostart & Keybindings</h1>
@@ -271,6 +283,37 @@ hl.bind("XF86MonBrightnessDown", function()
 	hl.dispatch(hl.dsp.exec_cmd("bash " .. home .. "/.config/eww/corner/scripts/osd_bright.sh bright-down"))
 end, { repeating = true })
 ```
+
+---
+
+<h1 align="center">Warning & Installation</h1>
+
+> [!WARNING]
+> Please **check the backend script**
+> Don't just look and run, review the code and understand what you're running. Your system, your responsibility.
+
+---
+
+### Installation
+
+I don't provide automated install scripts or bloated installation wrappers. This repository is meant to be cloned, read, stripped down, and modified according to *your* personal needs.
+
+### Clone the Repository
+Clone this repository directly into your local machine:
+
+*   **Configurations (`eww`, `kitty`, `fastfetch`, `rofi`, `dunst`):**
+```bash
+git clone https://github.com/haikal-hakim/athena-eww.git
+cd athena-eww
+cp -r .config/* ~/.config/
+```
+
+*   **Shell (`.zshrc`):**
+```bash
+cp .zshrc ~/
+```
+
+Make it your own. Break it, fix it, and customize it until it fits your workflow perfectly.
 
 ---
 
