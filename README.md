@@ -200,7 +200,7 @@ eww get EWW_TEMPS
 )
 ```
 
-### Configuration Note
+### Configuration Note (Dashboard)
 
 The Todo widget requires a local text file to function. Ensure the following path exists:
 
