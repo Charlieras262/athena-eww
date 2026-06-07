@@ -241,10 +241,10 @@ hl.exec_cmd("sleep 5 && eww open window_power")
 
 ### Keybindings
 
-To toggle the dashboard, map the execution script to your Window Manager configuration.
+To toggle the dashboard, map the execution.
 
 >Manual Testing
->You can test the toggle script directly from your terminal by running:
+>You can test the toggle directly from your terminal by running:
 
 ```bash
 eww open window_dashboard
