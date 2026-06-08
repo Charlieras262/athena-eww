@@ -3,7 +3,7 @@
 (defwidget web_btn [class arg icon]
   (eventbox :cursor "pointer"
             (button :class "web-btn ${class}-btn"
-                    :onclick "bash ~/.config/eww/corner/scripts/web_open.sh ${arg}"
+                    :onclick "bash ~/.config/eww/corner/scripts/website.sh ${arg}"
                     (label :class "web-icon ${class}-icon"
                            :halign "center"
                            :valign "center"
