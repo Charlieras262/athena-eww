@@ -180,9 +180,7 @@ Check your available sensors, command in your terminal:
 eww get EWW_TEMPS
 ```
 
-Look for your sensor key or `main packages` in the output
-
-Update key inside:
+Look for your sensor key or `main packages` in the output, and update key inside:
 
 ```text
 .config/eww/dashboard/src/sysinfo.yuck:
@@ -192,10 +190,10 @@ Find section:
 
 ```lisp
 (circular-progress :value {((EWW_TEMPS["YOUR_SENSOR_KEY"] ?: EWW_TEMPS["Tdie"] ?: 0) / 100) * 100}
+                      ....
                             ....
-                            ....
-                                 (label :class "sysinfo-stat"
-                                        :text "${EWW_TEMPS["YOUR_SENSOR_KEY"] ?: EWW_TEMPS["Tdie"] ?: 0}°C")
+                   (label :class "sysinfo-stat"
+                          :text "${EWW_TEMPS["YOUR_SENSOR_KEY"] ?: EWW_TEMPS["Tdie"] ?: 0}°C")
                    )
 )
 ```
