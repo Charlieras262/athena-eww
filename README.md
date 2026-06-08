@@ -131,8 +131,6 @@ chmod +x ~/.config/eww/dashboard/scripts/*.sh
 chmod +x ~/.config/eww/panel/scripts/*.sh
 ```
 
----
-
 ### Weather API (Dashboard)
 
 Create an API key from [OpenWeatherMap](https://openweathermap.org/). Activation may take around 30 minutes.
@@ -209,7 +207,6 @@ Task three
 
 ---
 
-<br>
 <h1 align="center">Optional Customization</h1>
 <p align="center">
   These settings are optional and purely based on personal preference.
