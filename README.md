@@ -71,22 +71,26 @@ To ensure all features of the Athena Eww setup work correctly, make sure the fol
 
 | Dependency | Purpose |
 | :--- | :--- |
+| **`awk`** | Text processor for system output parsing.|
+| **`bluez-utils`** | Bluetooth management tool (bluetoothctl). |
+| **`brightnessctl`** | Backlight and brightness control. |
+| **`curl`** | HTTP tool to fetch weather data API. |
 | **`dunst`** | Notifications daemon. |
-| **`jq`** | JSON processor, for weather data and system info. |
-| **`curl`** | Used to fetch weather data from OpenWeatherMap API. |
-| **`socat`** | Required for workspace. |
-| **`python`** | Required for helper scripts. |
-| **`libnotify`** | Needed for desktop notifications. |
-| **`inotify-tools`** | Required for real-time file monitoring. |
-| **`networkmanager`** | Provides `nmcli` to handle Wi-Fi. |
-| **`hyprshutdown`** | power menu protection for exit hyprland. |
+| **`hyprshutdown`** | Session and power menu backend. |
+| **`inotify-tools`** | Real-time file & theme change monitor. |
+| **`jq`** | JSON parser for widget data. |
+| **`libnotify`** | System notification dispatcher (notify-send). |
+| **`networkmanager`** | Wi-Fi and network controller (nmcli). |
 | **`power-profiles-daemon`** | Manages system power profiles. |
+| **`python`** | Required for helper scripts. |
+| **`socat`** | Real-time socket listener for Hyprland. |
+| **`wireplumber`** | Audio volume controller (wpctl). |
 
 ### Installation (Arch Linux)
 You can install the required packages using `pacman`:
 
 ```bash
-sudo pacman -S dunst jq curl socat python libnotify inotify-tools networkmanager hyprshutdown power-profiles-daemon
+sudo pacman -S awk bluez-utils brightnessctl curl dunst hyprshutdown inotify-tools jq libnotify networkmanager power-profiles-daemon python socat wireplumber
 ```
 
 </details>
@@ -144,15 +148,13 @@ chmod +x ~/.config/eww/panel/scripts/*.sh
 
 ### Weather Location (Dashboard)
 
-**Get an API Key**: Sign up at [OpenWeatherMap](https://openweathermap.org/) generate a API key from your account. Find your location.
-
-Open the weather script:
+**Get an API Key**: Sign up at [OpenWeatherMap](https://openweathermap.org/) generate a API key and wait approximately 30 minutes after creating the API key, find your location. Open the weather script:
 
 ```text
 .config/eww/dashboard/scripts/weather.py
 ```
 
-Edit your coordinates and API Key inside the script:
+Edit your city and API Key inside the script:
 
 ```Bash
 API_KEY="YOUR_API_KEY"
@@ -342,15 +344,7 @@ end, { repeating = true })
 
 ---
 
-<h1 align="center">Warning & Installation</h1>
-
-> [!WARNING]
-> Please **check the backend script**
-> Don't just look and run, review the code and understand what you're running. Your system, your responsibility.
-
----
-
-### Installation
+## Installation
 
 I don't provide automated install scripts or bloated installation wrappers. This repository is meant to be cloned, read, stripped down, and modified according needs.
 
