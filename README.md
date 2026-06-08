@@ -24,9 +24,6 @@
 
 https://github.com/user-attachments/assets/0954f470-4e62-480a-9cf7-3b219e3ee9f1
 
-> [!NOTE]
-> This setup is designed specifically for Hyprland and Eww on Arch Linux.
-> Some scripts and widgets may require adjustment for different environments.
 ---
 
 ## Rofi Preview
