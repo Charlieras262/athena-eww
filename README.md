@@ -226,8 +226,8 @@ Available themes:
 ```text
 .config/eww/panel/src/switcher.yuck
 .config/eww/panel/styles/switcher.scss
-
 ```
+
 2. Update:
 
 ```text
