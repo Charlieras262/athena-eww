@@ -365,6 +365,29 @@ end, { repeating = true })
 
 ---
 
+>[!TIP]
+>Stability Note
+>This configuration is completely stable. However, if you encounter two pidofs.
+
+Check for duplicate process IDs (PIDs):
+
+```bash
+pidof eww
+```
+
+If it returns two or more PIDs, kill them and restart cleanly:
+
+```bash
+pkill eww
+eww daemon
+eww open window_bar
+eww open window_launcher
+eww open window_power
+eww open window_website
+```
+
+---
+
 ## Acknowledgments
 
 * **[Eww](https://github.com/elkowar/eww)** - Created by **Elkowar**. Huge thanks to the creator and contributors for this amazing widget ecosystem.
