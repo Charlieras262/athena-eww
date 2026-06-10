@@ -222,38 +222,17 @@ Available themes:
 - Tokyo Night
 - Tokyo Night Light
 
-1. Create a new .scss palette inside `.config/eww/theme/`, and edit:
+Create a new .scss palette inside `.config/eww/theme/`, and edit:
 
-```text
-.config/eww/panel/src/switcher.yuck
-.config/eww/panel/styles/switcher.scss
-```
-
-2. Update:
-
-```text
-.config/eww/toggle_theme.sh
-```
+1. scripts Actions.`config/eww/toggle_theme.sh`
+2. Widget file `.config/eww/panel/src/switcher.yuck`
+3. Style Customization `.config/eww/panel/styles/switcher.scss`
 
 ### Website Shortcuts (Corner)
 
-1. Script Actions:
-
-```text
-.config/eww/corner/scripts/website.sh
-```
-
-2. Widget file:
-
-```text
-.config/eww/corner/src/website.yuck
-```
-
-3. Style Customization:
-
-```text
-.config/eww/corner/styles/website.scss
-```
+1. Script Actions `.config/eww/corner/scripts/website.sh`
+2. Widget file `.config/eww/corner/src/website.yuck`
+3. Style Customization `.config/eww/corner/styles/website.scss`
 
 ### App Launcher (Corner)
 
