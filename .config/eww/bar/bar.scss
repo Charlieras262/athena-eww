@@ -14,7 +14,7 @@
     border-radius: 99px;
 
     .arch-icon {
-      font-size: 20px;
+      font-size: 19px;
       color: $sapphire;
     }
   }
@@ -33,7 +33,6 @@
     background-color: rgba($base, 0.9);
     padding: 0 12px 0 14px;
     border-radius: 99px;
-
   }
 
   .panel-trigger {
@@ -41,6 +40,7 @@
     font-size: 20px;
     margin-right: 4px;
     margin-left: -10px;
+    padding: 0 8px 0 10px;
 
     &:hover {
       color: rgba($sapphire, 0.9);
