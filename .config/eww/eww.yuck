@@ -1,3 +1,6 @@
+;; @author Muhammad Haikal Hakim
+;; @repository https://github.com/haikal-hakim/athena-eww
+
 (defvar open_dashboard false)
 
 ;; --- ROOT ---
