@@ -16,14 +16,14 @@
                   :space-evenly false
                   :spacing 12
                   :halign "start"
-
                   (eventbox :cursor "pointer"
                             (button :class "bar-arch-trigger"
                                     :onclick "${EWW_CMD} open --toggle window_dashboard"
                                     :style "background: none; box-shadow: none;"
                                     (label :class "arch-icon"
                                            :valign "center"
-                                           :text "󰣇")))
+                                           :text "󰣇"))
+                            )
 
                   (box :orientation "horizontal"
                        (widget_workspaces))
@@ -33,14 +33,13 @@
              (box :class "center-container"
                   :halign "center"
                   (label :class "time"
-                         :text {formattime(EWW_TIME, "%H:%M")})
+                         :text {formattime(EWW_TIME, "%I:%M %p")})
                   )
 
              ;; RIGHT
              (box :orientation "horizontal"
                   :halign "end"
                   :space-evenly false
-
                   (box :class "right-container"
                        :orientation "horizontal"
                        :spacing 12
@@ -57,7 +56,8 @@
                                  (button :class "panel-trigger"
                                          :onclick "${EWW_CMD} open --toggle window_panel"
                                          :style "background: none; box-shadow: none;"
-                                         (label :text "󱧘"))))
+                                         (label :text "󱧘")))
+                       )
                   )
              )
   )
